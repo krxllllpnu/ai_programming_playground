@@ -10,7 +10,7 @@ int main() {
         cout << "ERROR";
         return 0;
     }
-    for (int i = 1; i < 4; ++i) {
+    for (int i = 1; i < 5; ++i) {
         if (a[i] <= 0) {
             cout << "ERROR";
             return 0;
