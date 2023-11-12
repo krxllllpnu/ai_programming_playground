@@ -1,10 +1,9 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int a[5];
-    for (int i = 1; i < 6; ++i) {
-        cout << "Enter side of the " << i << " cube:";
-        cin >> a[i-1];
+    long long a[5];
+    for (int i = 0; i < 5; ++i) {
+        cin >> a[i];
     }
     if (a[0] <= 0) {
         cout << "ERROR";
