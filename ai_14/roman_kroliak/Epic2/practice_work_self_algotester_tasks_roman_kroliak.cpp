@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include <algorithm>
 using namespace std;
 int main() {
     int n;
@@ -8,19 +8,22 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> a[i] >> b[i] >> c[i];
     }
-    int sum_a, sum_b, sum_c;
-    sum_a = sum_b = sum_c = 0;
-    for (int i = 0; i < n; ++i) {
-        sum_a += a[i];
-        sum_b += b[i];
-        sum_c += c[i];
+    sort(a, a + n);
+    sort(b, b + n);
+    sort(c, c + n);
+    int m_a, m_b, m_c;
+    if(n % 2 == 0) {
+        m_a = ( a[n/2 - 1] + a[n/2] ) /2;
+        m_b = ( b[n/2 - 1] + b[n/2] ) / 2;
+        m_c = ( c[n/2 - 1] + c[n/2] ) / 2;
+    } else {
+        m_a = a[n/2];
+        m_b = b[n/2];
+        m_c = c[n/2];
     }
-    int avg_A = sum_a / n;
-    int avg_B = sum_b / n;
-    int avg_C = sum_c / n;
     int m = 0;
     for (int i = 0; i < n; ++i) {
-        m += abs(a[i]-avg_A) + abs(b[i]-avg_B) + abs(c[i]-avg_C);
+        m += abs(a[i]-m_a) + abs(b[i]-m_b) + abs(c[i]-m_c);
     }
     cout << m;
     return 0;
